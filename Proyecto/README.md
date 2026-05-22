@@ -1,4 +1,4 @@
-# Gestor de Inventario Hogar/Lab
+# Gestor de Inventario 
 
 Aplicación **C++/Qt** para administrar componentes electrónicos. Registro, búsqueda, alertas stock bajo, reportes CSV. Funciona en PC y **Raspberry Pi**.
 
