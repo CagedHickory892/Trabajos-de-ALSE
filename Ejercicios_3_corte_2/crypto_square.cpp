@@ -1,62 +1,58 @@
 #include <iostream>
-#include <mutex>
+#include <string>
+#include <vector>
+#include <cmath>
 using namespace std;
 
-class BankAccount {
-private:
-    int saldo;
-    bool abierta;
-    mutable mutex mtx;
-
+class SquareCode {
 public:
-    BankAccount() : saldo(0), abierta(false) {}
+    string encode(string text) {
+        //quitar espacios,puntuación y pasar a minúsculas
+        string normalized = "";
+        for (char c : text) {
+            if (isalnum(c)) {
+                normalized += tolower(c);
+            }
+        }
 
-    void abrir() {
-        lock_guard<mutex> lock(mtx);
-        if (abierta) throw runtime_error("La cuenta ya está abierta");
-        saldo = 0;
-        abierta = true;
+        int n = normalized.size();
+
+        //Calcular r y c
+        int r = floor(sqrt(n));
+        int c = ceil(sqrt(n));
+        if (r * c < n) r++;
+
+        //Construir la matriz
+        vector<string> grid(r, string(c, ' '));
+        int idx = 0;
+        for (int i = 0; i < r; i++) {
+            for (int j = 0; j < c; j++) {
+                if (idx < n) {
+                    grid[i][j] = normalized[idx++];
+                }
+            }
+        }
+
+        //Leer por columnas y formar bloques
+        string result = "";
+        for (int j = 0; j < c; j++) {
+            for (int i = 0; i < r; i++) {
+                result += grid[i][j];
+            }
+            result += ' '; // separar bloques
+        }
+
+        return result;
     }
+};
 
-    void cerrar() {
-        lock_guard<mutex> lock(mtx);
-        if (!abierta) throw runtime_error("La cuenta no está abierta");
-        abierta = false;
-    }
-
-    int obtenerSaldo() const {
-        lock_guard<mutex> lock(mtx);
-        if (!abierta) throw runtime_error("La cuenta no está abierta");
-        return saldo;
-    }
-
-    void depositar(int cantidad) {
-        lock_guard<mutex> lock(mtx);
-        if (!abierta) throw runtime_error("La cuenta no está abierta");
-        if (cantidad < 0) throw runtime_error("Cantidad negativa");
-        saldo += cantidad;
-    }
-
-    void retirar(int cantidad) {
-        lock_guard<mutex> lock(mtx);
-        if (!abierta) throw runtime_error("La cuenta no está abierta");
-        if (cantidad < 0) throw runtime_error("Cantidad negativa");
-        if (cantidad > saldo) throw runtime_error("Fondos insuficientes");
-        saldo -= cantidad;
-    }
-}; // 👈 IMPORTANTE: aquí termina la clase
-
-// 👇 AQUÍ VA EL MAIN (fuera de la clase)
+// Ejemplo de uso
 int main() {
-    BankAccount cuenta;
+    SquareCode sc;
 
-    cuenta.abrir();
-    cuenta.depositar(100);
-    cuenta.retirar(30);
+    string text;
+    getline(cin, text);
 
-    cout << cuenta.obtenerSaldo() << endl; // 70
-
-    cuenta.cerrar();
-
+    cout << sc.encode(text) << endl;
     return 0;
 }
