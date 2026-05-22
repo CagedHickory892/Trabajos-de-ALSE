@@ -1,0 +1,5 @@
+ID,Nombre,Tipo,Cantidad,UbicaciÃ³n,Fecha,Lote,Notas
+6,Lapiz,Util escolar,2,Caja 2,2026-05-21,3,Un objeto que sirve para tomar apuntos en superficies 
+7,Cuaderno,Util escolar ,5,caja 72,2026-05-21,14,un objeto que sirve para registrar notas o dibujos
+8,Candado,Seguridad,0,caja 22,2026-05-21,0,un sistema de seguridad
+9,Candado,Seguridad,10,caja 21,2026-05-21,27,un sistema de seguridad

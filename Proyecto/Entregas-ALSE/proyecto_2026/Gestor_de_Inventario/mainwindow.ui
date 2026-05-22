@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ui version="4.0">
+ <class>MainWindow</class>
+ <widget class="QMainWindow" name="MainWindow">
+  <property name="geometry">
+   <rect>
+    <x>0</x>
+    <y>0</y>
+    <width>757</width>
+    <height>617</height>
+   </rect>
+  </property>
+  <property name="windowTitle">
+   <string>MainWindow</string>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">font: 700 italic 9pt &quot;Nimbus Sans [URW ]&quot;;</string>
+  </property>
+  <widget class="QWidget" name="centralwidget">
+   <layout class="QVBoxLayout" name="verticalLayout">
+    <item>
+     <widget class="QPushButton" name="exportar">
+      <property name="text">
+       <string>Exportar CSV</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLabel" name="buscar">
+      <property name="text">
+       <string>Buscar:</string>
+      </property>
+     </widget>
+    </item>
+    <item>
+     <widget class="QLineEdit" name="buscar_2"/>
+    </item>
+    <item>
+     <widget class="QTableWidget" name="tableWidget"/>
+    </item>
+    <item>
+     <widget class="QGroupBox" name="groupBox">
+      <property name="title">
+       <string/>
+      </property>
+      <layout class="QGridLayout" name="gridLayout">
+       <item row="0" column="0">
+        <widget class="QLabel" name="nombre">
+         <property name="text">
+          <string>Nombre:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="1">
+        <widget class="QLineEdit" name="nombre_2"/>
+       </item>
+       <item row="0" column="3">
+        <widget class="QLabel" name="tipo">
+         <property name="text">
+          <string>Tipo:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="4" colspan="2">
+        <widget class="QLineEdit" name="tipo_2"/>
+       </item>
+       <item row="0" column="6">
+        <widget class="QLabel" name="ubicacion">
+         <property name="text">
+          <string>Ubicación:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="0" column="7" colspan="3">
+        <widget class="QLineEdit" name="ubicacion_2"/>
+       </item>
+       <item row="1" column="0">
+        <widget class="QLabel" name="cantidad_2">
+         <property name="text">
+          <string>Cantidad:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="1">
+        <widget class="QDoubleSpinBox" name="cantidad"/>
+       </item>
+       <item row="1" column="2">
+        <widget class="QLabel" name="lote">
+         <property name="text">
+          <string>Lote:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="3" colspan="2">
+        <widget class="QDoubleSpinBox" name="lote_2"/>
+       </item>
+       <item row="1" column="5">
+        <widget class="QLabel" name="fecha_2">
+         <property name="text">
+          <string>Fecha:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="6" colspan="2">
+        <widget class="QDateEdit" name="fecha"/>
+       </item>
+       <item row="1" column="8">
+        <widget class="QLabel" name="notes">
+         <property name="text">
+          <string>Notas:</string>
+         </property>
+        </widget>
+       </item>
+       <item row="1" column="9" rowspan="2">
+        <widget class="QPlainTextEdit" name="notes_2"/>
+       </item>
+       <item row="2" column="1" colspan="6">
+        <layout class="QHBoxLayout" name="horizontalLayout">
+         <item>
+          <widget class="QPushButton" name="nuevo">
+           <property name="text">
+            <string>Nuevo item</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="agregar">
+           <property name="text">
+            <string>Agregar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="editar">
+           <property name="text">
+            <string>Editar</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QPushButton" name="eliminar">
+           <property name="text">
+            <string>Eliminar</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </item>
+      </layout>
+     </widget>
+    </item>
+   </layout>
+  </widget>
+  <widget class="QStatusBar" name="statusbar"/>
+ </widget>
+ <resources/>
+ <connections/>
+</ui>
